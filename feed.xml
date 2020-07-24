@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-07-23T17:45:05-07:00</updated><id>/feed.xml</id><title type="html"> </title><subtitle></subtitle><author><name>Sang-Yun Oh</name></author><entry><title type="html">Repositories for Private Development of Public Course Content</title><link href="/teaching-repos/" rel="alternate" type="text/html" title="Repositories for Private Development of Public Course Content" /><published>2020-07-23T00:00:00-07:00</published><updated>2020-07-23T00:00:00-07:00</updated><id>/teaching-repos</id><content type="html" xml:base="/teaching-repos/">&lt;p&gt;For course material development, some content such as homework solutions need to be kept private (at least temporarily). This note explains how two repositories can be used in concert to simplify private development of public course content.&lt;/p&gt;
+
+&lt;p&gt;The material on this page has been adopted and expanded from &lt;a href=&quot;https://github.community/t5/How-to-use-Git-and-GitHub/Project-setup-question-with-public-and-private-quot-branches/m-p/26789/highlight/true#M7600&quot;&gt;this posting&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;initial-setup&quot;&gt;Initial setup&lt;/h1&gt;
+
+&lt;h2 id=&quot;remote-public-and-private-repositories&quot;&gt;Remote Public and Private Repositories&lt;/h2&gt;
+
+&lt;p&gt;Suppose you have two Github repositories:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Public repo is at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://github.com/username/public-repo.git&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Private repo is at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://github.com/username/private-repo.git&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The public repo will be open to the students, whereas the private repo will be used for development and testing (shared with TAs etc.)&lt;/p&gt;
+
+&lt;h2 id=&quot;local-repository-with-public-and-private-remotes&quot;&gt;Local Repository with Public and Private Remotes&lt;/h2&gt;
+
+&lt;p&gt;Create a local repository and set target repositories&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; ~/local-repo &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/local-repo
+git init
+git remote add public https://github.com/username/public-repo.git
+git remote add private https://github.com/username/private-repo.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add first public file in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch and push to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-repo&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/local-repo &amp;amp;&amp;amp; git checkout master&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;README&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; README.md
+git add README.md
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;first commit&quot;&lt;/span&gt;
+
+git push public master
+git push private master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-repo/master&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-repo/master&lt;/code&gt; on Github are identical.&lt;/p&gt;
+
+&lt;p&gt;Create a local development branch: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-branch&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/local-repo &amp;amp;&amp;amp; git checkout master&lt;/span&gt;
+git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; private-branch
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;handout&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; homework1-handout.md
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;solutions&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; homework1-solution.md
+git add homework1-handout.md homework1-solution.md 
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;private development&quot;&lt;/span&gt;
+
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; private private-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Here &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-branch&lt;/code&gt; branch syncs with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-repo/private-branch&lt;/code&gt; (remote branch name defaults to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-branch&lt;/code&gt;)&lt;/p&gt;
+
+&lt;h1 id=&quot;publishing-content-to-public-repository&quot;&gt;Publishing content to public repository&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;checkout&lt;/code&gt;&lt;/strong&gt; relevant files into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-repo/master&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/public-repo &amp;amp;&amp;amp; git checkout master&lt;/span&gt;
+
+git checkout private-branch homework1-handout.md
+git add homework1-handout.md
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;release homework1&quot;&lt;/span&gt;
+git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Note the line &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git checkout private-branch homework1-handout.md&lt;/code&gt; overwrites (or creates) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;homework1-handout.md&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public-repo/master&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-different-remote-vs-local-branch-names-optional&quot;&gt;Using different remote vs. local branch names (Optional)&lt;/h2&gt;
+
+&lt;p&gt;A local branch (you would like to keep private) can have any name. For example, create a local branch named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new-branch&lt;/code&gt; to sync with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-repo/private-branch&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/public-repo &amp;amp;&amp;amp; git checkout master&lt;/span&gt;
+
+git checkout &lt;span class=&quot;nt&quot;&gt;--orphan&lt;/span&gt; new-branch
+git pull private private-branch
+&lt;span class=&quot;c&quot;&gt;# make some changes&lt;/span&gt;
+git push private new-branch:private-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Any changes in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new-branch&lt;/code&gt; branch will now push to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-repo/private-branch&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: upstream tracking doesn’t seem to stick with ‘-u’.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-default-push-behavior-optional&quot;&gt;Setting default &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;push&lt;/code&gt; behavior (Optional)&lt;/h2&gt;
+
+&lt;p&gt;To me, the default behaviors of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git pull&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt; are strange. I kept on using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push [remote] [branch]&lt;/code&gt; above because even setting upstream with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-u&lt;/code&gt; does not behave as I expect it to.&lt;/p&gt;
+
+&lt;p&gt;However, configuring &lt;a href=&quot;https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git config push.default upstream&lt;/code&gt;&lt;/a&gt; seems much more intuitive to me.&lt;/p&gt;
+
+&lt;p&gt;Also, forcing checkout seems to simplify the process of cloning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private/feature&lt;/code&gt; to a new local branch and sets the upstream:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config push.default upstream &lt;span class=&quot;nt&quot;&gt;--local&lt;/span&gt;
+git checkout &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; new-branch private/feature
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;fix problems&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; homework1-handout.md
+git add &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;fix homework1-handout&quot;&lt;/span&gt;
+git push &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Above will push our local &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new-branch&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private/feature&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;h1 id=&quot;duplicating-dual-remote-setup&quot;&gt;Duplicating Dual Remote Setup&lt;/h1&gt;
+
+&lt;p&gt;Clone public repository and add private repository as remote:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/username/public-repo.git ~/public-repo
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/public-repo
+
+&lt;span class=&quot;c&quot;&gt;# set local master branch to track public master branch&lt;/span&gt;
+git remote &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;origin &lt;span class=&quot;c&quot;&gt;# to explicitly differentiate public vs private repos&lt;/span&gt;
+git remote add public https://github.com/username/public-repo.git
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; public master 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sync a local &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-branch&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-repo/private-branch&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/public-repo &amp;amp;&amp;amp; git checkout master&lt;/span&gt;
+
+git checkout &lt;span class=&quot;nt&quot;&gt;--orphan&lt;/span&gt; private-branch 
+
+git remote add private https://github.com/username/private-repo.git
+git pull private private-branch
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;add solutions&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; homework1-solution.md
+git add &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;modify homework 1 solution&quot;&lt;/span&gt;
+
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; private private-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check pushing is setup properly with a dry run: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push -n -v&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;adding-branches&quot;&gt;Adding Branches&lt;/h1&gt;
+
+&lt;p&gt;If multiple people are working on this repository, multiple branches need to be created.
+To create additional branches to the private repository, simply create a branch from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private-branch&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# cd ~/public-repo &amp;amp;&amp;amp; git checkout private-branch&lt;/span&gt;
+
+git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; new-private-branch
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;newfile&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; newfile.txt
+git add newfile.txt
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'adding a new file'&lt;/span&gt;
+
+git remote add private new-private-branch
+git push &lt;span class=&quot;nt&quot;&gt;--set-upstream&lt;/span&gt; private new-private-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">For course material development, some content such as homework solutions need to be kept private (at least temporarily). This note explains how two repositories can be used in concert to simplify private development of public course content.</summary></entry></feed>
