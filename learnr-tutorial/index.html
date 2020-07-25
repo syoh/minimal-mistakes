@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Interactive Tutorial with learnr and Binder</title>
-<meta name="description" content="Creating Interactive Tutorial with learnr Package">
+<meta name="description" content="Recently, a colleague pointed out that they would like to host R tutorial created with learnr package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.">
 
 
   <meta name="author" content="Sang-Yun Oh">
@@ -23,7 +23,7 @@
 <meta property="og:url" content="/learnr-tutorial/">
 
 
-  <meta property="og:description" content="Creating Interactive Tutorial with learnr Package">
+  <meta property="og:description" content="Recently, a colleague pointed out that they would like to host R tutorial created with learnr package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.">
 
 
 
@@ -285,7 +285,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Interactive Tutorial with learnr and Binder">
-    <meta itemprop="description" content="Creating Interactive Tutorial with learnr Package">
+    <meta itemprop="description" content="Recently, a colleague pointed out that they would like to host R tutorial created with learnr package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.">
     <meta itemprop="datePublished" content="2020-07-07T00:00:00+00:00">
     
 
@@ -300,7 +300,7 @@
 
 
 
-  less than 1 minute read
+  1 minute read
 
 </p>
           
@@ -315,25 +315,48 @@
               <ul class="toc__menu">
   <li><a href="#creating-interactive-tutorial-with-learnr-package">Creating Interactive Tutorial with learnr Package</a></li>
   <li><a href="#hosting-interactive-tutorial-with-binder">“Hosting” Interactive Tutorial with Binder</a></li>
-  <li><a href="#an-example-tutorial-on-binder">An Example Tutorial on Binder</a></li>
+  <li><a href="#template-code-repository">Template Code Repository</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h1 id="creating-interactive-tutorial-with-learnr-package">Creating Interactive Tutorial with <code class="language-plaintext highlighter-rouge">learnr</code> Package</h1>
+        <p>Recently, a colleague pointed out that they would like to host R tutorial created with <code class="language-plaintext highlighter-rouge">learnr</code> package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.</p>
 
-<p><a href="https://rstudio.github.io/learnr/"><code class="language-plaintext highlighter-rouge">learnr</code> Package</a> is a package that creates a specialized Shiny apps for interactive tutorials. While useful, the difficult part for students is often installing the software and running them to go through the tutorials, and, for the teachers, it would be great <em>not</em> to have to maintain a Shiny server.</p>
+<h1 id="creating-interactive-tutorial-with-learnr-package">Creating Interactive Tutorial with <code class="language-plaintext highlighter-rouge">learnr</code> Package</h1>
+
+<p><a href="https://rstudio.github.io/learnr/"><code class="language-plaintext highlighter-rouge">learnr</code></a> is a package that creates a specialized Shiny apps for interactive tutorials. The difficulty in making use of <code class="language-plaintext highlighter-rouge">learnr</code> in practice is that someone needs to host the Shiny apps. Immediate possibilities are</p>
+
+<ul>
+  <li>Host them on <a href="https://www.shinyapps.io">shinyapps.io</a>. The free tier seems to be limited to 5 applications and 25 active hours per month.</li>
+  <li>Host them on a central Shiny server the instructor installs. With cloud computing this is possible without a physical machine; however, this option is still time consuming and requires expertise.</li>
+  <li>Student installs Rstudio and runs the tutorials. This can be hard depending on the audience.</li>
+</ul>
+
+<p>First and second options require instructor’s resource and time, and third option need students to invest time to setup the environment and run the tutorials themselves.</p>
 
 <h1 id="hosting-interactive-tutorial-with-binder">“Hosting” Interactive Tutorial with Binder</h1>
 
-<p>Binder is a flexible platform to reproduce a computational environment. You can read more about Binder <a href="https://the-turing-way.netlify.app/reproducible-research/renv/renv-binder.html">here</a></p>
+<p>Binder is a flexible platform to reproduce a computational environment. You can read more about Binder on <a href="https://the-turing-way.netlify.app/reproducible-research/renv/renv-binder.html">The Turing Way</a> (an online book for research computing that I find super useful).</p>
 
 <p>For example, Binder can start a Rstudio session with cloned contents of a GitHub repository, and start a Shiny app for you.</p>
 
-<h1 id="an-example-tutorial-on-binder">An Example Tutorial on Binder</h1>
+<figure class=" ">
+  
+    
+      <a href="/assets/images/learnr.gif" title="learnr tutorial running on Binder">
+          <img src="/assets/images/learnr.gif" alt="learnr tutorial on Binder" />
+      </a>
+    
+  
+  
+</figure>
 
-<p>I created two interactive tutorial examples in this <a href="https://github.com/syoh/learnr-tutorial">Github</a>. Below are the two Binder links you can try out</p>
+<h1 id="template-code-repository">Template Code Repository</h1>
+
+<p>You can find two interactive tutorial examples in this <a href="https://github.com/syoh/learnr-tutorial"><code class="language-plaintext highlighter-rouge">learnr</code> template Github repository</a>. You can clone the template repository and start creating your own <code class="language-plaintext highlighter-rouge">learnr</code> tutorials that will run on Binder!</p>
+
+<p>Below are the two Binder links from the template repository:</p>
 
 <ul>
   <li>shiny/test1: <a href="http://mybinder.org/v2/gh/syoh/learnr-tutorial/master?urlpath=shiny/test1/"><img src="http://mybinder.org/badge_logo.svg" alt="Binder" /></a></li>
