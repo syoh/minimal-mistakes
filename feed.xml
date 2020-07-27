@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-07-27T22:47:40+00:00</updated><id>/feed.xml</id><title type="html"> </title><subtitle></subtitle><author><name>Sang-Yun Oh</name></author><entry><title type="html">Repositories for Private Development of Public Course Content</title><link href="/teaching-repos/" rel="alternate" type="text/html" title="Repositories for Private Development of Public Course Content" /><published>2020-07-23T00:00:00+00:00</published><updated>2020-07-23T00:00:00+00:00</updated><id>/teaching-repos</id><content type="html" xml:base="/teaching-repos/">&lt;p&gt;For course material development, some content such as homework solutions need to be kept private (at least temporarily). This note explains how two repositories can be used in concert to simplify private development of public course content.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-07-27T23:12:17+00:00</updated><id>/feed.xml</id><title type="html"> </title><subtitle></subtitle><author><name>Sang-Yun Oh</name></author><entry><title type="html">Repositories for Private Development of Public Course Content</title><link href="/teaching-repos/" rel="alternate" type="text/html" title="Repositories for Private Development of Public Course Content" /><published>2020-07-23T00:00:00+00:00</published><updated>2020-07-23T00:00:00+00:00</updated><id>/teaching-repos</id><content type="html" xml:base="/teaching-repos/">&lt;p&gt;For course material development, some content such as homework solutions need to be kept private (at least temporarily). This note explains how two repositories can be used in concert to simplify private development of public course content.&lt;/p&gt;
 
 &lt;p&gt;The material on this page has been adopted and expanded from &lt;a href=&quot;https://github.community/t5/How-to-use-Git-and-GitHub/Project-setup-question-with-public-and-private-quot-branches/m-p/26789/highlight/true#M7600&quot;&gt;this posting&lt;/a&gt;&lt;/p&gt;
 
@@ -181,4 +181,63 @@ git push &lt;span class=&quot;nt&quot;&gt;--set-upstream&lt;/span&gt; private ne
 &lt;ul&gt;
   &lt;li&gt;shiny/test1: &lt;a href=&quot;http://mybinder.org/v2/gh/syoh/learnr-tutorial/master?urlpath=shiny/test1/&quot;&gt;&lt;img src=&quot;http://mybinder.org/badge_logo.svg&quot; alt=&quot;Binder&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;shiny/test2: &lt;a href=&quot;http://mybinder.org/v2/gh/syoh/learnr-tutorial/master?urlpath=shiny/test2/&quot;&gt;&lt;img src=&quot;http://mybinder.org/badge_logo.svg&quot; alt=&quot;Binder&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">Recently, a colleague pointed out that they would like to host R tutorial created with learnr package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.</summary></entry><entry><title type="html">HP-CONCORD Paves the Way for Scalable Machine Learning in HPC</title><link href="/HP-CONCORD/" rel="alternate" type="text/html" title="HP-CONCORD Paves the Way for Scalable Machine Learning in HPC" /><published>2018-10-01T00:00:00+00:00</published><updated>2018-10-01T00:00:00+00:00</updated><id>/HP-CONCORD</id><content type="html" xml:base="/HP-CONCORD/">&lt;p&gt;&lt;a href=&quot;https://www.nersc.gov/news-publications/nersc-news/science-news/2018/hp-concord-paves-the-way-for-scalable-machine-learning-in-hpc/&quot;&gt;Read the article on NERSC&lt;/a&gt;&lt;/p&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">Read the article on NERSC</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">Recently, a colleague pointed out that they would like to host R tutorial created with learnr package for their students. In this post, I describe a way to host the tutorials that is suitable in a workshop-like setting.</summary></entry><entry><title type="html">HP-CONCORD in FY 2021 Budget Request to Congress</title><link href="/doe-budget-request-to-congress/" rel="alternate" type="text/html" title="HP-CONCORD in FY 2021 Budget Request to Congress" /><published>2020-02-14T00:00:00+00:00</published><updated>2020-02-14T00:00:00+00:00</updated><id>/doe-budget-request-to-congress</id><content type="html" xml:base="/doe-budget-request-to-congress/">&lt;p&gt;Every year, the Office of Science at Department of Energy makes &lt;a href=&quot;https://www.energy.gov/science/office-science-funding/office-science-budget&quot;&gt;budget requests to congress&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;https://www.energy.gov/sites/prod/files/2020/06/f75/fy-2021-sc-ascr-cong-budget.pdf&quot;&gt;FY 2021 Advanced Scientific Computing Research (ASCR) budget request&lt;/a&gt;, HP-CONCORD appeared as one of the program accomplishments. The following is from page 27:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;HP-CONCORD Enables Machine Learning in HPC at Unprecedented Scale.&lt;/em&gt;&lt;br /&gt;
+Understanding the interactions between millions of variables such as how a disease may be caused by a subset of the
+human genes is among the most challenging problems in data-driven science. A powerful machine learning algorithm called
+CONCORD can identify these relationships however until recently it could only be applied to modest-sized data sets.
+Researchers from LBNL supported by SciDAC along with their collaborators from Google Brain, University of California Santa
+Barbara and Carnegie Mellon University developed a high-performance computing version of the algorithm called HPCONCORD. Using NERSC, they then demonstrated this parallel algorithm on an enormous set of data from the Human
+Connectome Project, which computed estimates for about 4 billion parameters, and an even larger demonstration problem
+with over 800 billion parameters. The HP-CONCORD team used functional magnetic resonance imaging data to estimate the
+underlying conditional dependency structure of the brain and then used the resulting estimate to automatically identify
+functional regions of the brain. The researchers expect that many other science areas will benefit from HP-CONCORD in the
+future: In biology it can be used to reconstruct gene regulatory networks, or in environmental sciences it can help in
+estimating temperature-to-environmental-proxy relationships. HP-CONCORD may also be useful for hypothesis generation
+in exploratory data analysis to guide further experimental study.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There were a lot of budget cuts, but &lt;a href=&quot;https://cra.org/govaffairs/blog/2020/02/doe-sc-fy-2021-pbr/&quot;&gt;Computing Research Association&lt;/a&gt; reports that ASCR faired reasonably well.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;FY19&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;FY20&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;FY21 PBR&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;$ CHANGE&lt;/th&gt;
+      &lt;th&gt;% CHANGE&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DOE SC Total&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$6.59B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$7.00B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$5.84B&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-$1.16B&lt;/td&gt;
+      &lt;td&gt;-17%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ASCR&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$936M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$980M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$988M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;+$8M&lt;/td&gt;
+      &lt;td&gt;+1.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ARPA-E&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$366M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$425M&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;$0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-$425M&lt;/td&gt;
+      &lt;td&gt;-100%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">Every year, the Office of Science at Department of Energy makes budget requests to congress.</summary></entry><entry><title type="html">HP-CONCORD Paves the Way for Scalable Machine Learning in HPC</title><link href="/HP-CONCORD/" rel="alternate" type="text/html" title="HP-CONCORD Paves the Way for Scalable Machine Learning in HPC" /><published>2018-10-01T00:00:00+00:00</published><updated>2018-10-01T00:00:00+00:00</updated><id>/HP-CONCORD</id><content type="html" xml:base="/HP-CONCORD/">&lt;p&gt;&lt;a href=&quot;https://www.nersc.gov/news-publications/nersc-news/science-news/2018/hp-concord-paves-the-way-for-scalable-machine-learning-in-hpc/&quot;&gt;Read the article on NERSC&lt;/a&gt;&lt;/p&gt;</content><author><name>Sang-Yun Oh</name></author><summary type="html">Read the article on NERSC</summary></entry></feed>
