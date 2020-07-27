@@ -1,5 +1,5 @@
 var store = [{
-        "title": "Hp Concord",
+        "title": "HP-CONCORD Paves the Way for Scalable Machine Learning in HPC",
         "excerpt":"Read the article on NERSC  ","categories": [],
         "tags": [],
         "url": "/HP-CONCORD/",
